@@ -1,0 +1,95 @@
+body{
+    padding : 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin : 0;
+}
+
+.footer{
+    text-align: center;
+    padding : 2vh 0;
+    background-color:  rgba(0, 0, 0, .2);
+}
+
+
+
+.containers{
+    stroke: 20px black;
+    padding : 2rem;
+    font-size : 1.2rem;
+    text-shadow: 0 0 60px 60px black;
+    color : white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align :left;
+}
+
+.input{
+    border-radius: 1rem;
+    padding : .5rem 1rem;
+    border : none;
+    box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+    font-weight: bold;
+    margin : 1rem;
+    padding : .5rem 1rem;
+    border-radius: 1rem;
+    border : none;
+}
+
+.kuliner-info{
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+}
+
+.kuliner-card{
+    z-index: 1;
+    padding : 2rem;
+    display: inline-block;
+    background-color: white;
+    color : black;
+}
+
+.kuliner-image{
+    margin-top : 2rem;
+    margin-right : 8rem;
+    width: 33%;
+    transition: linear .5s;
+}
+
+.kuliner-image:hover{
+    z-index: 0;
+    object-position: center;
+    position: relative;
+    object-fit: cover;
+    transform: scale(1.5);
+    transition: linear .5s;
+}
+
+.title{
+    color :  rgb(22, 158, 40);
+    width:15rem;
+    height: 15rem;
+    font-weight: bold;
+    text-align : center;
+    font-size : 2rem;
+}
+
+.judul{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.daerah{
+    font-size: .8rem;
+    width:15rem;
+    height: 15rem;
+    font-weight: bold;
+    text-align : center;
+}
+
+.deskripsi{
+    margin-right : 30%;
+    text-align: justify;
+}

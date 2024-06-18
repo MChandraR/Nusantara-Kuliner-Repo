@@ -1,0 +1,119 @@
+body{
+    padding : 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    margin : 0;
+}
+
+.footer{
+    text-align: center;
+    padding : 2vh 0;
+    background-color:  rgba(0, 0, 0, .2);
+}
+
+.navbar-brand{
+    padding : 1rem;
+    color : rgb(22, 158, 40);
+}
+
+.navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding : 0 1rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .2);
+}
+
+.navbar-menu{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right : 1rem;
+    justify-content: end;
+}
+
+.navbar-link{
+    color : rgb(22, 158, 40);
+    font-weight: bold;
+    font-size : 1.2rem;
+}
+
+.containers{
+    stroke: 20px black;
+    padding : 2rem;
+    font-size : 1.2rem;
+    text-shadow: 0 0 60px 60px black;
+    color : white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align :left;
+}
+
+.input{
+    border-radius: 1rem;
+    padding : .5rem 1rem;
+    border : none;
+    box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+    font-weight: bold;
+    margin : 1rem;
+    padding : .5rem 1rem;
+    border-radius: 1rem;
+    border : none;
+}
+
+.kuliner-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kuliner-card{
+    padding : 2rem;
+    display: inline-block;
+    margin : 0 1rem;
+    width : 55vw;
+    box-shadow: 0 0 .2rem .2rem rgba(0, 0, 0, .3);
+    border-radius: .5rem;
+    color : black;
+}
+
+.title{
+    width:15rem;
+    height: 15rem;
+    font-weight: bold;
+    text-align : center;
+    font-size : 2rem;
+}
+
+.judul{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.daerah{
+    font-size: .8rem;
+    width:15rem;
+    height: 15rem;
+    font-weight: bold;
+    text-align : center;
+}
+
+.list-makanan{
+    width : 100%;
+    border-spacing: 0;
+    color :black;
+}
+
+.list-makanan thead td{
+    font-size : 1.2rem;
+    padding : .5rem 0 ;
+    font-weight: bold;
+    border-bottom: solid 2px black;
+}
+
+
+.list-makanan tbody td{
+    border-bottom: solid 1px rgba(0, 0, 0, .2);
+    padding : 1rem 0;
+}

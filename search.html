@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Kuliner</title>
+    <link rel="stylesheet" href="asset/css/search.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+
+<style>
+</style>
+<body>
+    <nav class="navbar ">
+        <img src="asset/gambar/restaurant.png" style="width:2rem;" alt="">
+        <span class="navbar-brand" href="#" style="font-family:arial; font-size : 2rem; font-weight:bold;">Kuliner Nusantara</span>
+        <div class="navbar-menu">
+            <a href="index.html" class="navbar-link" style="text-decoration:none; margin:0 1rem;">Home</a>
+            <a href="menu.html" class="navbar-link" style="text-decoration:none; margin:0 1rem;">Daftar Kuliner</a>
+            <a href="galeri.html" class="navbar-link" style="text-decoration:none; margin:0 1rem;">Galeri</a>
+            <a href="info.html" class="navbar-link" style="text-decoration:none; margin:0 1rem;">About</a>
+            <input type="text" class="input" id="searchInput" placeholder="Masukkan kata kunci">
+            <img style="margin : 0 1rem;" src="asset/gambar/searchG.png" alt="" width="20">
+        </div>
+    </nav>
+
+    <div class="side-bar">
+        <div class="bounce-top" style="display:flex; margin-right:.5rem; flex-direction:column;align-items:center;" id="side-button" >
+            <img class="side-icon" src="asset/gambar/menu-app.png" alt="">
+            <!-- <span class="icon-text">Menu</span> -->
+        </div>
+        <div style="display:flex; align-items:center;"  class="side-bar-menu hide" id="sidemenu">
+            <span><b>List Halaman</b></span><hr style="border:solid 2px black; width:100%;">
+            <a class="link" href="index.html"><span >Home</span></a><br>
+            <a class="link" href="menu.html"><span >List Kuliner</span></a><br>
+            <a class="link" href="galeri.html"><span >Galeri</span></a><br>
+            <a class="link" href="preview.html"><span >Preview</span></a><br>
+            <a class="link" href="credit.html"><span >Credit</span></a><br>
+            <a class="link" href="history.html"><span >Sejarah</span></a><br>
+            <a class="link" href="peta.html"><span >Peta</span></a><br>
+            <a class="link" href="search.html"><span >Pencarian</span></a><br>
+            <a class="link" href="indeks.html"><span >Indeks</span></a><br>
+            <a class="link" href="info.html"><span >Tentang</span></a><br>
+        </div>
+    </div>
+
+    <div class="containers">s
+        <div>
+            <!-- List makanan -->
+            <img src="asset/gambar/search.png" alt="" style="width:1.5rem;"">
+            <span class="judul" style="color:black" id="head">List Kuliner</span><br>
+            <span style="color:black;">Daftar menu yang sesuai</span><hr>
+            <div class="filter-list">
+                <button id="noFilter" class="button" style="margin-right:.5rem;">Normal</button>
+                <button id="ascFilter" class="button" style="margin-right:.5rem;">A-Z</button>
+                <button id="descFilter" class="button">Z-A</button>
+            </div><br>
+            <div class="kuliner-list" id="kuliner-list" >
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="footer" >
+        <div>
+            <h2>Contact - About us</h2>
+            <hr>
+            <div class="footer-contact">
+                <img src="asset/gambar/logo/instagram.png" alt="" width="30">
+                <a href="https://www.instagram.com/kuliner_nusantara_uni?igsh=MXM2OWlkbG1nb296OQ==">Instagram</a>
+            </div>
+            <div class="footer-contact">
+                <img src="asset/gambar/logo/whatsapp.png" alt="" width="30">
+                <a href="https://wa.me/6285668309519">Whatsapp</a>
+            </div>
+        </div>
+        <p>© 2024 Nusantara Kuliner. All rights reserved.</p>
+    </footer>
+
+</body>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</html>
+
+<script>
+    let noFilter = document.getElementById("noFilter");
+    let ascFilter = document.getElementById("ascFilter");
+    let descFilter = document.getElementById("descFilter");
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let key = urlParams.get("makanan");
+    let keys = urlParams.get("filter");
+    keys = keys == null ? "" : keys.toLowerCase();
+    key = key == null ? "" : key;
+    console.log(urlParams.get("makanan"));
+    let menus = [];
+    document.getElementById("head").innerHTML = 'Hasil Pencarian untuk - "' + key + '"'; 
+    Object.keys(makanan).forEach(function(key) {
+       menus.push(key);
+    });
+
+    if(keys.includes("asc") || keys.includes("desc")) menus.sort();
+    if(keys.includes("desc")) menus.reverse();
+
+    for(let food in menus){
+        food = menus[food];
+        console.log(makanan[food].daerah.toLowerCase().includes(key.toLowerCase()));
+        if(food.includes(key.toLowerCase()) || makanan[food].daerah.toLowerCase().includes(key.toLowerCase()) || makanan[food].nama.toLowerCase().includes(key.toLowerCase())){
+            document.getElementById("kuliner-list").innerHTML += 
+            '<div class="kuliner-card" >'
+                +'<img class="search-img" src="asset/gambar/makanan/'+makanan[food].img+'" >'
+                +'<div style="background-color:white;"><br>'
+                    +   '<span class="title">'+makanan[food].nama+'</span><br>'
+                    +  '<span class="daerah">- '+makanan[food].daerah+' -</span><br>'
+                    + '<a href="preview.html?makanan='+food+'"><button class="btn" style="margin : .5rem 2rem;">Selengkapnya..</button></a><br>'
+                    + '</div> '
+                    + '</div> ';
+                }
+    }
+    if(keys == null || keys == "" ){
+        noFilter.style.backgroundColor = "green";
+        noFilter.style.color = "white";
+    }else if(keys == "asc") {
+        ascFilter.style.backgroundColor = "green";
+        ascFilter.style.color = "white";
+    }else{
+        descFilter.style.backgroundColor = "green";
+        descFilter.style.color = "white";
+    }
+
+    ascFilter.addEventListener('click', ()=>{
+        window.location.href = "/search.html" + (key != "" ? "?makanan=" + key + "&" : "?")+"filter=asc";
+    });
+    
+    descFilter.addEventListener('click', ()=>{
+        window.location.href = "/search.html" + (key != "" ? "?makanan=" + key+ "&" : "?") + "filter=desc";
+    });
+    
+    noFilter.addEventListener('click',()=>{
+        window.location.href = "/search.html" + key != "" ? "?makanan=" + key : "";
+    });
+    console.log(search.value);
+</script>
